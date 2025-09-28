@@ -12,6 +12,10 @@ import time
 import random
 import json
 from xml.etree import ElementTree as ET
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
