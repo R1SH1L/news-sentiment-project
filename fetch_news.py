@@ -14,6 +14,13 @@ import json
 from xml.etree import ElementTree as ET
 from dotenv import load_dotenv
 
+# Try to import streamlit for cloud deployment
+try:
+    import streamlit as st
+    STREAMLIT_AVAILABLE = True
+except ImportError:
+    STREAMLIT_AVAILABLE = False
+
 # Load environment variables
 load_dotenv()
 
@@ -24,7 +31,13 @@ class NewsAPIFetcher:
     """Fetch news from NewsAPI (requires API key)"""
     
     def __init__(self, api_key=None):
-        self.api_key = api_key or os.getenv('NEWS_API_KEY')
+        # Try different sources for API key
+        if api_key:
+            self.api_key = api_key
+        elif STREAMLIT_AVAILABLE and hasattr(st, 'secrets') and 'NEWS_API_KEY' in st.secrets:
+            self.api_key = st.secrets['NEWS_API_KEY']
+        else:
+            self.api_key = os.getenv('NEWS_API_KEY')
         self.base_url = "https://newsapi.org/v2"
     
     def fetch_headlines(self, sources="bbc-news,cnn,reuters", language="en", page_size=20):

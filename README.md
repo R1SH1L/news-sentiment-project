@@ -24,7 +24,7 @@ pip install -r requirements.txt
 
 3. Set up NewsAPI key:
    - Get a free API key from [NewsAPI](https://newsapi.org/)
-   - Create a `.env` file and add: `NEWS_API_KEY=your_api_key_here`
+   - Copy `.env.example` to `.env` and add your key: `NEWS_API_KEY=your_api_key_here`
 
 ## Usage
 
@@ -32,6 +32,17 @@ Run the Streamlit dashboard:
 ```bash
 streamlit run dashboard.py
 ```
+
+## Deployment to Streamlit Cloud
+
+1. Fork/clone this repository to your GitHub account
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Connect your GitHub repository
+4. Set main file as `dashboard.py`
+5. **Important**: Add your NewsAPI key in Streamlit Cloud secrets:
+   - Go to your app settings
+   - Navigate to "Secrets" section
+   - Add: `NEWS_API_KEY = "your_actual_api_key_here"`
 
 ## Project Structure
 
