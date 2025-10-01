@@ -1,46 +1,59 @@
-# News Sentiment Analysis 📰
+# News Sentiment Analysis
 
-**Real-time news sentiment analysis with machine learning and interactive dashboard**
+A real-time news sentiment analysis application with machine learning and interactive dashboard.
 
-🔗 **Live Demo**: [View Dashboard](https://your-app-name.streamlit.app)
+## Features
 
-## ✨ Features
-- 📰 **Real-time News**: Fetches from NewsAPI and RSS feeds
-- 🤖 **ML Analysis**: PySpark-powered sentiment classification  
-- 📊 **Live Dashboard**: Interactive charts and real-time updates
-- 🌐 **Cloud Deployed**: Available 24/7 on Streamlit Cloud
+- **Real-time News Fetching**: Gets latest news from NewsAPI and RSS feeds
+- **Sentiment Analysis**: Uses PySpark machine learning for sentiment classification
+- **Interactive Dashboard**: Built with Streamlit for data visualization
+- **Automated Processing**: Continuous analysis and updates
 
-## 🚀 Quick Start
+## Installation
 
-### Local Development
+1. Clone the repository:
+```bash
+git clone https://github.com/R1SH1L/news-sentiment-project.git
+cd news-sentiment-project
+```
+
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
+```
+
+3. Set up NewsAPI key:
+   - Get a free API key from [NewsAPI](https://newsapi.org/)
+   - Create a `.env` file and add: `NEWS_API_KEY=your_api_key_here`
+
+## Usage
+
+Run the Streamlit dashboard:
+```bash
 streamlit run dashboard.py
 ```
 
-### API Setup
-Get free NewsAPI key: https://newsapi.org/
+## Project Structure
 
-**For local:** Add to `.env` file:
-```
-NEWS_API_KEY=your_api_key_here
-```
+- `dashboard.py` - Main Streamlit application
+- `fetch_news.py` - News data fetching module
+- `train_model.py` - Machine learning model training
+- `predict_stream.py` - Real-time prediction engine
+- `data/` - Data storage directory
+- `models/` - Trained ML models
 
-**For deployment:** Add to Streamlit secrets in your app dashboard
+## How It Works
 
-## 📁 Project Structure
-- `dashboard.py` - Main Streamlit app
-- `fetch_news.py` - News fetching with multiple sources
-- `train_model.py` - ML model training
-- `predict.py` - Sentiment prediction engine
+1. **Data Collection**: Fetches news articles from multiple sources
+2. **Preprocessing**: Cleans and prepares text data
+3. **Analysis**: Applies trained sentiment classification model
+4. **Visualization**: Displays results in interactive dashboard
 
-## 🔧 How It Works
-1. **Fetch** - Gets latest news from APIs/RSS
-2. **Analyze** - Runs sentiment analysis with trained model
-3. **Visualize** - Shows results in real-time dashboard
+## Requirements
 
-## 📊 Dashboard Features
-- Real-time sentiment metrics and gauges
-- Interactive charts and word clouds
-- Source breakdown and trend analysis
-- Auto-refresh every 30 seconds
+- Python 3.8+
+- Streamlit
+- PySpark
+- Pandas
+- Scikit-learn
+- Requests
