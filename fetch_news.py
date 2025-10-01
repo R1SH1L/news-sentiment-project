@@ -145,24 +145,24 @@ class RSSFetcher:
                 link = ""
                 description = ""
                 
-                # Try different title formats
+                # Try different title formats (fix deprecation warnings)
                 title_elem = item.find('title') or item.find('.//{http://www.w3.org/2005/Atom}title')
-                if title_elem is not None:
+                if title_elem is not None and title_elem.text:
                     title = title_elem.text
                 
                 # Try to get publication date
                 pub_elem = item.find('pubDate') or item.find('.//{http://www.w3.org/2005/Atom}updated')
-                if pub_elem is not None:
+                if pub_elem is not None and pub_elem.text:
                     pub_date = pub_elem.text
                 
                 # Try to get link
                 link_elem = item.find('link') or item.find('.//{http://www.w3.org/2005/Atom}link')
                 if link_elem is not None:
-                    link = link_elem.text or link_elem.get('href', '')
+                    link = link_elem.text or link_elem.get('href', '') or ""
                 
                 # Try to get description
                 desc_elem = item.find('description') or item.find('.//{http://www.w3.org/2005/Atom}summary')
-                if desc_elem is not None:
+                if desc_elem is not None and desc_elem.text:
                     description = desc_elem.text or ""
                 
                 if title:
