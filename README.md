@@ -33,6 +33,20 @@ Run the Streamlit dashboard:
 streamlit run dashboard.py
 ```
 
+## Deployment to Streamlit Cloud
+
+1. Fork/clone this repository to your GitHub account
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Connect your GitHub repository
+4. Set main file as `dashboard.py`
+5. **Important**: Add your NewsAPI key in Streamlit Cloud secrets:
+   - Go to your app settings
+   - Navigate to "Secrets" section
+   - Add: `NEWS_API_KEY = "de914b01d6ce40eba49a4d7f7d21a121"`
+6. Deploy and your app will be live!
+
+> **Note**: The app will work with sample data if external news sources are unavailable due to network restrictions.
+
 ## Project Structure
 
 - `dashboard.py` - Main Streamlit application
